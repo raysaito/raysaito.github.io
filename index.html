@@ -1,253 +1,562 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RS</title>
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
+<title>Ray Saito／Portfolio Website</title>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Shippori+Antique&display=swap" rel="stylesheet">
 <style>
-
-/* =========================
-   COLOR SYSTEM
-========================= */
-:root {
-  --bg-main: #FBFAF5;
-  --bg-soft: #F3F6F4;
-  --text-main: #1d1d1b;
-  --accent-green: #68BE8D;
-  --accent-blue: #81C7D4;
-  --accent-sprout: #AACF53;
-}
-
-/* =========================
-   BASE
-========================= */
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  background: var(--bg-main);
-  color: var(--text-main);
-  line-height: 1.8;
-  scroll-behavior: smooth;
-}
-
-h1, h2 {
-  font-family: 'Zen Old Mincho', serif;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-}
-
-section {
-  padding: 140px 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  background: rgba(251,250,245,0.95);
-  backdrop-filter: blur(6px);
-  padding: 20px 60px;
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
-  z-index: 1000;
-}
-
-header a {
-  text-decoration: none;
-  color: var(--text-main);
-  margin-left: 30px;
-  font-size: 14px;
-  letter-spacing: 0.12em;
-}
-
-header a:hover {
-  color: var(--accent-green);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  height: 100vh;
-  background: linear-gradient(
-      rgba(129,199,212,0.2),
-      rgba(104,190,141,0.2)
-    ),
-    url('assets/crane.jpg')
-    center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: var(--text-main);
-}
-
-.hero h1 {
-  font-size: 56px;
-  color: var(--bg-main);
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-.alt-section {
-  background: var(--bg-soft);
-}
-
-h2 {
-  color: var(--accent-blue);
-}
-
-hr {
-  border: none;
-  border-top: 2px solid var(--accent-green);
-  width: 60px;
-  margin: 30px 0 50px;
-}
-
-/* =========================
-   GALLERY
-========================= */
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  display: block;
-  border-radius: 4px;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.button {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 32px;
-  background: var(--accent-sprout);
-  color: white;
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  transition: 0.3s ease;
-}
-
-.button:hover {
-  background: var(--accent-green);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  text-align: center;
-  padding: 60px;
-  background: var(--accent-blue);
-  color: white;
-  font-size: 14px;
-  letter-spacing: 0.1em;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-  section {
-    padding: 100px 20px;
+    html {          
+    scroll-behavior: smooth;
+  } 
+  :root {
+    --cream: #FFF8EE;
+    --milk: #FFFDF7;
+    --navy: #1A1A2E;
+    --blue: #4169C8;
+    --pink: #F2729A;
+    --yellow: #FFD84D;
+    --green: #5DBF8A;
+    --orange: #FF8C42;
+    --border: 3px solid var(--navy);
+    --shadow: 6px 6px 0 var(--navy);
   }
-
-  .hero h1 {
-    font-size: 40px;
+ 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  body {
+    background: var(--cream);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    color: var(--navy);
+    overflow-x: hidden;
   }
-
+ 
+  /* ── MARQUEE ── */
+  .marquee-bar {
+    background: var(--navy);
+    color: var(--yellow);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 8px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 18s linear infinite;
+  }
+  .marquee-inner span { margin: 0 2rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+ 
+  /* ── HEADER ── */
   header {
-    padding: 20px;
+    background: var(--milk);
+    border-bottom: var(--border);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-}
-
+  .logo {
+    font-family: 'Shippori Antique', serif;
+    font-size: 1.8rem;
+    line-height: 1.1;
+    text-decoration: none;
+    color: var(--navy);
+  }
+  .logo span {
+    display: block;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--blue);
+    text-transform: uppercase;
+  }
+  nav { display: flex; gap: 1.5rem; }
+  nav a {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+  }
+  nav a:hover { border-bottom-color: var(--pink); }
+ 
+  /* ── HERO ── */
+  .hero {
+    background: var(--yellow);
+    border-bottom: var(--border);
+    padding: 5rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-text h1 {
+    font-family: 'Shippori Antique', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    max-width: 380px;
+    margin-bottom: 2rem;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--yellow);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    padding: 0.75rem 2rem;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    transition: transform 0.1s, box-shadow 0.1s;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0 var(--navy); }
+  .btn:active { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--navy); }
+  .btn-outline {
+    background: transparent;
+    color: var(--navy);
+    margin-left: 1rem;
+  }
+ 
+  .hero-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    transform: rotate(2deg);
+  }
+  .hero-cards .mini-card:nth-child(2) { transform: translateY(-12px); }
+  .hero-cards .mini-card:nth-child(3) { transform: rotate(-3deg) translateY(6px); }
+ 
+  /* ── SECTION ── */
+  section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Shippori Antique', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    margin-bottom: 2.5rem;
+  }
+ 
+  /* ── CARD GRID ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+  }
+ 
+  .milk-card {
+    background: white;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+    color: var(--navy);
+    display: block;
+  }
+  .milk-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--navy);
+  }
+  .milk-card:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 var(--navy);
+  }
+ 
+  .card-img {
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: var(--navy);
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 7px;
+    border-radius: 99px;
+    letter-spacing: 0.05em;
+  }
+  .card-badge.new { background: var(--pink); }
+  .card-badge.rare { background: var(--blue); }
+ 
+  .card-info {
+    padding: 0.75rem 1rem;
+    border-top: 2px solid var(--navy);
+  }
+  .card-region {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 3px;
+  }
+  .card-name {
+    font-weight: 800;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .card-stars { font-size: 12px; letter-spacing: -2px; color: var(--orange); }
+ 
+  /* ── MINI CARD (hero) ── */
+  .mini-card {
+    background: white;
+    border: 2px solid var(--navy);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 4px 4px 0 var(--navy);
+  }
+  .mini-card-img {
+    aspect-ratio: 3/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+  .mini-card-label {
+    font-size: 9px;
+    font-weight: 800;
+    padding: 4px 6px;
+    border-top: 2px solid var(--navy);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+ 
+  /* ── DIVIDER ── */
+  .full-divider {
+    border: none;
+    border-top: var(--border);
+    margin: 0;
+  }
+ 
+  /* ── REGIONS ── */
+  .region-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  .region-pill {
+    border: var(--border);
+    box-shadow: 4px 4px 0 var(--navy);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 0.85rem;
+  }
+  .region-pill:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--navy); }
+  .region-pill .region-emoji { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+ 
+  ── HOW IT WORKS ──
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .step {
+    background: white;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    color: var(--yellow);
+    font-weight: 800;
+    font-size: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .step h3 { font-size: 1rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.85rem; line-height: 1.6; color: #555; }
+ 
+  /* ── COLOR BANDS ── */
+  .band-blue { background: #EEF3FF; border-top: var(--border); border-bottom: var(--border); }
+  .band-pink { background: #FFF0F5; border-top: var(--border); border-bottom: var(--border); }
+ 
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  footer .footer-logo {
+    font-family: 'Shippori Antique', serif;
+    font-size: 1.5rem;
+    color: var(--yellow);
+    margin-bottom: 1rem;
+  }
+  footer p { font-size: 0.8rem; color: #aaa; line-height: 1.8; }
+  footer a { color: var(--yellow); text-decoration: none; }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+    .hero-cards { transform: none; max-width: 280px; margin: 0 auto; }
+    nav { display: none; }
+    header { padding: 1rem 1.5rem; }
+  }
+ 
+  /* ── ANIMATIONS ── */
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .hero-cards { animation: float 4s ease-in-out infinite; }
 </style>
 </head>
-
 <body>
-
+ 
+<!-- Running Bar on Top -->
+<div class="marquee-bar">
+  <div class="marquee-inner">
+    <span>Drink more water!</span><span>Eat more vegetables!</span><span>8 Hours of sleep!</span></span><span>Take breaks and stretch!</span><span>Stay hydrated!</span><span>Go outside and get some sun!</span><span>Drink more water!</span><span>Eat more vegetables!</span><span>8 hours of sleep!</span></span><span>Take breaks and stretch!</span><span>Stay hydrated!</span><span>Go outside and get some sun!</span>
+  </div>
+</div>
+ 
+<!-- Header -->
 <header>
-  <div>RS</div>
+  <a class="logo" href="#">
+    Ray Saito
+  </a>
   <nav>
-    <a href="#about">INTRO</a>
-    <a href="#work">WORK</a>
-    <a href="blog.html">BLOG</a>
+    <a href="#cards">Projects</a>
+    <a href="#region">Fun</a>
+    <a href="#contact">Contact</a>
   </nav>
 </header>
-
-<section class="hero">
-  <h1>Welcome</h1>
-</section>
-
-<section id="about">
-  <h2>Introduction</h2>
-  <hr>
-  <p>
-    Online presence for me to share thoughts & ideas.
-  </p>
-</section>
-
-<section id="work" class="alt-section">
-  <h2>Selected Works</h2>
-  <hr>
-  <div class="gallery">
-
+ 
+<!-- Hero -->
+<div style="background:var(--yellow); border-bottom: 3px solid var(--navy);">
+  <div class="hero">
+    <div class="hero-text">
+      <h1>A place where I can showcase my work</h1>
+      <p>Get a chance to explore my projects and see what I've been up to</p>
+      <a href="#cards" class="btn">View projects →</a>
+      <a href="#region" class="btn btn-outline">Check hobbies</a>
+    </div>
+    <div class="hero-cards">
+      <div class="mini-card">
+        <div class="mini-card-img">
+          <img src="assets/crane.jpg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="mini-card-label">Cranes</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-img"> 
+          <img src="assets/water.jpg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="mini-card-label">Cleanse</div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-card-img">
+          <img src="assets/cowmilk.jpeg" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="mini-card-label">Me</div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<hr class="full-divider">
+ 
+<!-- PJ Section -->
+<section id="cards">
+  <div class="section-label">Projects</div>
+  <div class="section-title">List of work that I've done</div>
+  <div class="card-grid">
+ 
+    <a class="milk-card" href="#">
+      <div class="card-img" style="background:#E8F4FF;">
+        🐄
+      </div>
+      <div class="card-info">
+        <div class="card-region">Personal or Professional</div>
+        <div class="card-name">Project Name</div>
+        <div class="card-stars">★★★★★</div>
+      </div>
+    </a>
+ 
+    <a class="milk-card" href="#">
+      <div class="card-img" style="background:#FFF0E8;">
+        🍊
+      </div>
+      <div class="card-info">
+        <div class="card-region">Personal</div>
+        <div class="card-name">Project Name</div>
+        <div class="card-stars">★★★★★</div>
+      </div>
+    </a>
+ 
+    <a class="milk-card" href="#">
+      <div class="card-img" style="background:#F5F0FF;">
+        🍇
+      </div>
+      <div class="card-info">
+        <div class="card-region">Personal</div>
+        <div class="card-name">Project Name</div>
+        <div class="card-stars">★★★★★</div>
+      </div>
+    </a>
+ 
+    <a class="milk-card" href="#">
+      <div class="card-img" style="background:#FFF8E8;">
+        🌽
+      </div>
+      <div class="card-info">
+        <div class="card-region">Personal</div>
+        <div class="card-name">Project Name</div>
+        <div class="card-stars">★★★★★</div>
+      </div>
+    </a>
+ 
+    <a class="milk-card" href="#">
+      <div class="card-img" style="background:#F0FFF5;">
+        🍵
+      </div>
+      <div class="card-info">
+        <div class="card-region">Personal</div>
+        <div class="card-name">Project Name</div>
+        <div class="card-stars">★★★★★</div>
+      </div>
+    </a>
+ 
+    <a class="milk-card" href="#">
+      <div class="card-img" style="background:#FFF0F5;">
+        🌸
+      </div>
+      <div class="card-info">
+        <div class="card-region">Personal</div>
+        <div class="card-name">Project Name</div>
+        <div class="card-stars">★★★★★</div>
+      </div>
+    </a>
+ 
+    <a class="milk-card" href="#">
+      <div class="card-img" style="background:#FFFBE8;">
+        🍯
+      </div>
+      <div class="card-info">
+        <div class="card-region">Personal</div>
+        <div class="card-name">Project Name</div>
+        <div class="card-stars">★★★★★</div>
+      </div>
+    </a>
+ 
+    <a class="milk-card" href="#">
+      <div class="card-img" style="background:#F0F8FF;">
+        🐟
+      </div>
+      <div class="card-info">
+        <div class="card-region">Personal</div>
+        <div class="card-name">Project Name</div>
+        <div class="card-stars">★★★★★</div>
+      </div>
+    </a>
+ 
   </div>
 </section>
-
-
+ 
+<hr class="full-divider">
+ 
+<!-- Regions -->
+<div class="band-blue">
+  <section id="region">
+    <div class="section-label">Info to share</div>
+    <div class="section-title">Random things I know about</div>
+    <div class="region-grid">
+      <a class="region-pill" href="#" style="background:#E8F4FF;">
+        <span class="region-emoji">🗽</span>NYC: Food/Bar
+      </a>
+      <a class="region-pill" href="#" style="background:#FFF8E8;">
+        <span class="region-emoji">🗼</span>Tokyo: Food/Bar
+      </a>
+      <a class="region-pill" href="#" style="background:#FFF0E8;">
+        <span class="region-emoji">🦅</span>Birding
+      </a>
+      <a class="region-pill" href="#" style="background:#F5F0FF;">
+        <span class="region-emoji">🏋️</span>Weightlifting
+      </a>
+      <a class="region-pill" href="#" style="background:#F0FFF5;">
+        <span class="region-emoji">💴</span>Economy/Finance
+      </a>
+      <a class="region-pill" href="#" style="background:#FFF0F5;">
+        <span class="region-emoji">🐍</span>Python
+      </a>
+    </div>
+  </section>
+</div>
+ <hr class="full-divider">
+ 
+<!-- Contact Section -->
+<div class="band-pink">
+  <section id='contact' style="text-align:center; padding: 4rem 2rem;">
+    <div class="section-label" style="text-align:center;">Contact</div>
+    <h2 style="font-family:'Shippori Antique',serif; font-size:clamp(1.6rem,3vw,2.5rem); margin-bottom:1rem;">
+      Public profiles are linked below!
+    </h2>
+    <p style="color:#555; max-width:480px; margin:0 auto 2rem; line-height:1.7;">
+      Please reach out if you would like to connect
+    </p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="#" class="btn">Linkedin</a>
+      <a href="#" class="btn btn-outline" style="background:white;">Github</a>
+    </div>
+  </section>
+</div>
+ 
+<hr class="full-divider">
+ 
+<!-- Footer -->
 <footer>
-  © RS
+  <p>
+    Random Notes<br>
+    <a href="#">Hold1</a> · <a href="#">Hold2</a>
+  </p>
 </footer>
-
-<script>
-const sections = document.querySelectorAll("section");
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.2 });
-
-sections.forEach(section => {
-  observer.observe(section);
-});
-</script>
-
+ 
 </body>
 </html>
